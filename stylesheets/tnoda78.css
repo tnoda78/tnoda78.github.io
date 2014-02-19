@@ -2,7 +2,7 @@ body {
   background-color: #919191;
 }
 header a {
-  margin-left: 10px;
+  margin-left: 30px;
   color: #000;
 }
 header a:hover {
@@ -17,7 +17,7 @@ header img.icon {
 header h1 {
   font-size: 100%;
   letter-spacing: 4px;
-  padding-top: 15px;
+  padding-top: 25px;
 }
 span.name {
   font-size: 120%;
