@@ -1,0 +1,101 @@
+body {
+  background-color: #919191;
+}
+header a {
+  margin-left: 30px;
+  color: #000;
+}
+header a:hover {
+  text-decoration: none;
+  color: #000;
+}
+header img.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+}
+header h1 {
+  font-size: 100%;
+  letter-spacing: 4px;
+  padding-top: 25px;
+}
+span.name {
+  padding: 25px;
+  font-size: 110%;
+  letter-spacing: 2px;
+}
+section.about {
+  padding-left: 40px;
+}
+section.about h2 {
+  font-size: 124%;
+}
+section.blog-list ul {
+  list-style-type: square;
+}
+section.blog-list li {
+  font-size: 140%;
+}
+section.blog-list li {
+  font-size: 140%;
+}
+section.blog-list li a {
+  color: #444;
+  font-weight: 900;
+}
+section.blog-list time {
+  color: #696969;
+}
+article {
+  padding: 10px 0px;
+}
+section.blog a.list {
+  color: #444;
+}
+section.blog h1 {
+  font-weight: bold;
+  font-size: 200%;
+  padding-bottom: 6px;
+  margin: 40px 0px 2px 0px;
+}
+section.blog h2 {
+  font-weight: bold;
+  font-size: 180%;
+  border-bottom: 1px dotted #000;
+  padding-bottom: 4px;
+  margin: 40px 0px 40px 0px;
+}
+section.blog h3 {
+  font-weight: bold;
+  font-size: 140%;
+  border-bottom: 1px dotted #000;
+  padding-bottom: 3px;
+  margin: 40px 0px 40px 0px;
+}
+section.blog h4 {
+  font-weight: bold;
+  font-size: 120%;
+  margin: 40px 0px 40px 0px;
+}
+section.blog h5 {
+  font-weight: bold;
+  font-size: 100%;
+  margin: 40px 0px 40px 0px;
+}
+section.blog pre {
+  margin: 40px 0px 40px 0px;
+}
+section.blog img {
+  margin: 40px 0px 40px 0px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+section.blog blockquote {
+  color: #666;
+  font-size: 100%;
+  margin: 40px 0px 40px 0px;
+}
+footer span {
+  font-size: 40%;
+}

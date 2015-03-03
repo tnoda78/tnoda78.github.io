@@ -1,0 +1,129 @@
+<html>
+  <head>
+  <title>tnoda78.github.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" href="/css/tnoda78.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="https://1.gravatar.com/avatar/8aab4749403df44b28d0b8eca4c261c5?d=https%3A%2F%2Fidenticons.github.com%2F95598c50b860c7a9d64956eb50e5363c.png&r=x&s=140">
+  <link href="http://tnoda78.github.io//index.xml" rel="alternate" type="application/rss+xml" title="tnoda78.github.io" />
+</head>
+
+  <body>
+    <div class="container container-ext">
+      <div class="col-md-10 col-md-offset-1">
+  <header>
+    <img class="icon responsive-image" alt="" src="https://1.gravatar.com/avatar/8aab4749403df44b28d0b8eca4c261c5?d=https%3A%2F%2Fidenticons.github.com%2F95598c50b860c7a9d64956eb50e5363c.png&amp;r=x&amp;s=140" style="float:left;">
+    <h1>
+      <a href="/">tnoda78.github.io</a>
+    </h1>
+    <div style="clear: both;"></div>
+    <hr />
+  </header>
+</div>
+
+
+      <section class="blog col-md-10 col-md-offset-1">
+        <div class="row">
+          <a class="list" href="/blog">&lt;&lt; List</a>
+        </div>
+        <h1>Go言語のお勉強　コマンドラインツールを作成する</h1>
+        <time>February 12, 2014</time>
+        
+
+<h2 id="はじめに:48baa64d6bc05431962e7e8fea63e16f">はじめに</h2>
+
+<p>最近よく<a href="http://golang.jp/">Go言語</a>の評判を耳にするようになりました。ちょっと勉強してみようと思いまして、コマンドラインツールを作ってみました。</p>
+
+<p><a href="http://tnoda78.github.io/hozumi-command/">Hozumi Command</a>
+<a href="https://github.com/tnoda78/hozumi-command">(ソース)</a></p>
+
+<p>リズミカルに「ほずみ」と出力するだけの、なんの役にもたたないツールです。（「ほずみ」以外にも色々出力できます。）
+Go言語はクロスコンパイル環境の構築が容易で、様々な環境で動くバイナリファイルが簡単に作成できます。以下のようなスクリプトを作成すれば、一気に５環境のバイナリファイルを作成できます。</p>
+
+<pre><code>GOOS=linux GOARCH=386 go build -o tools/linux/i386/hozumi hozumi.go
+GOOS=linux GOARCH=amd64 go build -o tools/linux/amd64/hozumi hozumi.go
+GOOS=windows GOARCH=386 go build -o tools/windows/i386/hozumi.exe hozumi.go
+GOOS=windows GOARCH=amd64 go build -o tools/windows/amd64/hozumi.exe hozumi.go
+GOOS=darwin GOARCH=amd64 go build -o tools/darwin/hozumi hozumi.go
+</code></pre>
+
+<p>Go言語はサイトの情報が充実していますね。日本語の翻訳も進んでいて素晴らしいです。基本的にサイトを見れば、ひととおり習得できそうです。基本的な構文はサイトを見れば充分かと。</p>
+
+<h2 id="学んだこと:48baa64d6bc05431962e7e8fea63e16f">学んだこと</h2>
+
+<p>作成したツールは以下を使っています。</p>
+
+<ul>
+<li>flagパッケージ</li>
+<li>timeパッケージ</li>
+<li>構造体</li>
+<li>メソッド</li>
+</ul>
+
+<h3 id="flagパッケージ:48baa64d6bc05431962e7e8fea63e16f">flagパッケージ</h3>
+
+<p><a href="http://golang.jp/pkg/flag">http://golang.jp/pkg/flag</a></p>
+
+<p>コマンドラインツールなのでオプション指定を可能にしたいのですが、標準パッケージが存在します。</p>
+
+<p>flag.BoolVar(&amp;help, &ldquo;h&rdquo;, false, &ldquo;display help&rdquo;)
+flag.BoolVar(&amp;help, &ldquo;help&rdquo;, false, &ldquo;display help&rdquo;)</p>
+
+<p>上のように記述すれば、変数helpには-h(or &ndash;help)が指定されていれば、&rdquo;true&rdquo;、指定されていなければ&rdquo;false&rdquo;が入ります。
+また<code>flag.Usage</code>に関数を代入すれば、誤ったオプションを指定した場合に代入した関数を実行することができます。ヘルプ表示をすることも容易にできます。&rdquo;First-Class Functions（第１級関数）&rdquo;ってやつですね。</p>
+
+<h3 id="timeパッケージ:48baa64d6bc05431962e7e8fea63e16f">timeパッケージ</h3>
+
+<p><a href="http://golang.jp/pkg/time">http://golang.jp/pkg/time</a></p>
+
+<p>リズミカルな出力のために、sleepをさせたいです。Sleep関数はtimeパッケージにあります。</p>
+
+<h3 id="構造体:48baa64d6bc05431962e7e8fea63e16f">構造体</h3>
+
+<p>Go言語にはクラスの概念は無いようです。C言語のような構造体が定義できます。</p>
+
+<pre><code>type HozumiWriter struct {
+    contents                 []string
+    intervalDisplayRow       time.Duration
+    intervalDisplayOneLetter time.Duration
+    intervalDisplayCool      time.Duration
+    cool                     bool
+    dashboard                []string
+}
+</code></pre>
+
+<h3 id="メソッド:48baa64d6bc05431962e7e8fea63e16f">メソッド</h3>
+
+<p>構造体に振る舞いは定義できます。writeメソッドから、displayContentsメソッドなどを呼んでいます。-cオプションが付いている場合は、<code>&quot;Coooooooooooooooooooooool&quot;</code>と叫びます。（2014/02/13現在）</p>
+
+<pre><code>func (writer *HozumiWriter) write() {
+    for {
+        writer.displayContents()
+        if writer.cool {
+            writer.displayCool()
+        }
+    }
+}
+</code></pre>
+
+<h2 id="さいごに:48baa64d6bc05431962e7e8fea63e16f">さいごに</h2>
+
+<p>「LL言語ほど柔軟な記述はできませんが、C言語よりはカジュアルに使えそう」というのが私のGo言語に対する印象です。</p>
+
+<p>実は１点このツールで実装したいけれどできていないものがありまして、<code>-p --parallel</code>オプションです。Go言語をさわる前によく耳にしていたのが<a href="http://golang.jp/effective_go#goroutines">ゴルーチン</a>です。並列処理の扱いが得意であると。</p>
+
+<p>並列的にパラメータで指定した文字列を出力させたり、&rdquo;Cooooooooooooooooooooooooooooooooool&rdquo;と叫ばせるのが当面の目標です。</p>
+
+      </section>
+      <div class="col-md-10 col-md-offset-1">
+  <hr />
+  <footer>
+  <span class="footer">Copyright (C) 2015 Tomoya Noda</span>
+  </footer>
+</div>
+
+
+    </div>
+  </body>
+</html>

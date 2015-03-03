@@ -1,0 +1,177 @@
+<html>
+  <head>
+  <title>tnoda78.github.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" href="/css/tnoda78.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="https://1.gravatar.com/avatar/8aab4749403df44b28d0b8eca4c261c5?d=https%3A%2F%2Fidenticons.github.com%2F95598c50b860c7a9d64956eb50e5363c.png&r=x&s=140">
+  <link href="http://tnoda78.github.io//index.xml" rel="alternate" type="application/rss+xml" title="tnoda78.github.io" />
+</head>
+
+  <body>
+    <div class="container container-ext">
+      <div class="col-md-10 col-md-offset-1">
+  <header>
+    <img class="icon responsive-image" alt="" src="https://1.gravatar.com/avatar/8aab4749403df44b28d0b8eca4c261c5?d=https%3A%2F%2Fidenticons.github.com%2F95598c50b860c7a9d64956eb50e5363c.png&amp;r=x&amp;s=140" style="float:left;">
+    <h1>
+      <a href="/">tnoda78.github.io</a>
+    </h1>
+    <div style="clear: both;"></div>
+    <hr />
+  </header>
+</div>
+
+
+      <section class="blog col-md-10 col-md-offset-1">
+        <div class="row">
+          <a class="list" href="/blog">&lt;&lt; List</a>
+        </div>
+        <h1>Sinatra、Unicorn、Rmagickを使って、GIF画像作成Webアプリを作る</h1>
+        <time>February 18, 2014</time>
+        
+
+<h2 id="はじめに:5d72898f4d30e0953c0a2c9f55487a45">はじめに</h2>
+
+<p>以前にRailsアプリで画像をダウンロードできるアプリを仕事で作ったことがありまして、それを応用してGIF画像を作成するアプリを過去に作っていました。
+デプロイするサーバーとかを持っていないので、社内のサーバーに上げて公開していたたんなる内輪ウケのジョークアプリだったのですが、Herokuにはデフォルトで<a href="http://www.imagemagick.org/script/index.php">ImageMagick</a>が入っていることを知りまして、Herokuにデプロイしてみました。</p>
+
+<h2 id="作ったアプリについて:5d72898f4d30e0953c0a2c9f55487a45">作ったアプリについて</h2>
+
+<ul>
+<li><a href="http://tnoda78.github.io/hozumicart3">Hozumi Cart3</a></li>
+<li><a href="https://github.com/tnoda78/hozumicart3">ソース on Github</a></li>
+</ul>
+
+<p>現バージョンはスマホでも見られます！（レスポンシブデザインに挑戦）</p>
+
+<h2 id="作成工程:5d72898f4d30e0953c0a2c9f55487a45">作成工程</h2>
+
+<p>作成工程は以下の流れです。</p>
+
+<ul>
+<li>土台となるGIF画像を作成する</li>
+<li>GIF画像に指定した文字を埋め込む</li>
+<li>指定したカートの色を変える</li>
+<li>WEBアプリ化する</li>
+</ul>
+
+<h3 id="土台となるgif画像を作成する:5d72898f4d30e0953c0a2c9f55487a45">土台となるGIF画像を作成する</h3>
+
+<p>まず文字が表示されていないカートGIF画像をツールを使って作りました。</p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/224715403/images/cart.gif" alt="cart" />
+</p>
+
+<p>こちらは、<a href="http://giam.softonic.jp/">Giam</a>というソフトを使いました。</p>
+
+<p>上にあるGIF画像は10コマの画像で構成されています。</p>
+
+<p>例）その中の2枚の画像</p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/224715403/images/cart_pic01.bmp" alt="cart1" />
+</p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/224715403/images/cart_pic02.bmp" alt="cart2" />
+</p>
+
+<p>この10枚の画像はキャプチャソフトとExcelを使って作りました。。カートはExcelのオブジェクトで横にずらしながら、コマ撮りアニメーションのようにキャプチャしていきます。
+キャプチャしていった10枚の画像をGiamで編集し、一つのGIF画像を作成していきました。</p>
+
+<h3 id="gif画像に指定した文字を埋め込む:5d72898f4d30e0953c0a2c9f55487a45">GIF画像に指定した文字を埋め込む</h3>
+
+<p><a href="http://www.imagemagick.org/script/index.php">ImageMagick</a>は、画像編集ソフトです。コマンドラインにて画像編集（大きさ変えたり、画像の品質を変えたり）する事が可能です。
+PhotoShopやGimpで出来ることをCUIでできるイメージです。こちらのソフトはコマンドラインだけでなく、<a href="http://www.imagemagick.org/script/api.php">APIも用意</a>されていまして、
+<a href="http://rmagick.rubyforge.org/">Rmagick</a>というRuby製のライブラリを使うとこのAPIをRubyにて使うことができます。今回はRmagickを使いました。</p>
+
+<p>以下のようなメソッドを使用して、上に書いた各10枚の画像を参照できます。</p>
+
+<pre><code>gif = Magick::ImageList.new &quot;images/cart.gif&quot; # &lt;-- imagesディレクトリのcart.gifにアクセス
+gif.each_with_index do |f, i|  # &lt;-- f が画像オブジェクト、iはindex
+   # ...
+   # ...
+end
+</code></pre>
+
+<p>画像オブジェクトに文字を埋め込むには、annotateメソッドを使います。</p>
+
+<p>（ソース記述例）</p>
+
+<pre><code># imgは画像オブジェクト。x, y は画像の座標（ピクセル）です。
+Magick::Draw.new.annotate(img, 0, 0, x, y, letter) do 
+# フォントファイルのパス、配置、大きさ等を指定
+self.font = font_file_path               
+self.align = Magick::CenterAlign
+self.stroke = &quot;transparent&quot;
+self.pointsize = 52
+self.text_antialias = true
+self.kerning = 1
+end
+</code></pre>
+
+<h3 id="指定したカートの色を変える:5d72898f4d30e0953c0a2c9f55487a45">指定したカートの色を変える</h3>
+
+<p>ImageMagickは、指定したピクセルの色を変えられます。Rmagickでは、Imageクラスのpixel_colorメソッドを使います。</p>
+
+<p>（ソース記述例）</p>
+
+<pre><code># カートの高さ(Y座標 118～134）あたりのピクセルの色が緑色（土台GIFのカートの色）の座標を指定された色に変えている
+for y in 118...134
+  for x in 0...img.columns
+    src = img.pixel_color(x, y)
+    r = src.red
+    g = src.green
+    b = src.blue
+    if r == 37522 &amp;&amp; g == 53456 &amp;&amp; b == 20560
+    img.pixel_color(x, y, &quot;#&quot; + color)
+  end
+  end
+end
+</code></pre>
+
+<h3 id="webアプリ化する:5d72898f4d30e0953c0a2c9f55487a45">WEBアプリ化する</h3>
+
+<p>Sinatraを使っています。（Sinatraは情報が多いので省略します。私自身それほど詳しい訳ではないので。。）
+ルートにアクセスするとページHTMLを返し、<code>/cart</code>にアクセスするとGIF画像を返しています。<a href="https://github.com/tnoda78/hozumicart3/blob/master/main.rb">ソース - main.rb</a></p>
+
+<p>画像の編集は時間がかかるので、<code>/cart</code>のレスポンスはやや遅いです。</p>
+
+<h2 id="heroke-とgithub-pagesにデプロイしました:5d72898f4d30e0953c0a2c9f55487a45">Heroke とGithub Pagesにデプロイしました</h2>
+
+<p>上に書いたRmagick、SinatraのソースはHerokuを使って公開しました。</p>
+
+<p><a href="http://hozumicart3.herokuapp.com/">http://hozumicart3.herokuapp.com/</a></p>
+
+<p>Sinatra、Unicornを使ったHerokuへのデプロイは以下のサイトを参考にしました。</p>
+
+<p><a href="http://dev.classmethod.jp/server-side/ruby-on-rails/sinatra-postgresql-unicorn-on-heroku/">Sinatra + PostgreSQL + Unicorn な Web サーバーを Heroku に構築する</a></p>
+
+<p>Github Pagesも作りたかったので、viewファイルと同じようなものをhtmlで作りました。（HerokuにUPしているviewファイルはローカル端末でも動くようにしているため、若干記述は異なります）</p>
+
+<p>Github Project用のGithub Pagesは、<code>gh-pages</code>というブランチを作成してhtml等をpushすれば構築できます。以下のサイトを参考にしました。</p>
+
+<p><a href="http://tokkono.cute.coocan.jp/blog/slow/index.php/programming/github-pages-almost-perfect-guide/">GitHub Pagesホスティングサービス（ほぼ）完全活用ガイド</a></p>
+
+<p>ボタンを押したり、色指定プルダウンが変わったタイミングで、imgタグのsrc属性を変えて画像を取得しています。
+画像がロードされるまでにちょっと時間がかかるので、Now LoadingGif画像に切り替えたりしています。</p>
+
+<p><img src="http://tnoda78.github.io/hozumicart3/images/cart_wait1.gif" alt="Now Loading..." />
+</p>
+
+<h2 id="さいごに:5d72898f4d30e0953c0a2c9f55487a45">さいごに</h2>
+
+<p>Ruby自体に触れるようになったのも、ここ1、2年（おかしな記述も多いかと）なのですがRubygemsやBundler等の一連のエコシステムが心地よくて、「早めに完成品が見られる感」が半端ないですね。
+表示されたGif画像は保存もできるので、どうぞお持ち帰りください。</p>
+
+      </section>
+      <div class="col-md-10 col-md-offset-1">
+  <hr />
+  <footer>
+  <span class="footer">Copyright (C) 2015 Tomoya Noda</span>
+  </footer>
+</div>
+
+
+    </div>
+  </body>
+</html>

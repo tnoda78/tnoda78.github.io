@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tnoda78.github.io</title>
+    <link>http://tnoda78.github.io/</link>
+    <description>Recent content on tnoda78.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
+    <lastBuildDate>Mon, 02 Mar 2015 20:20:02 +0900</lastBuildDate>
+    <atom:link href="http://tnoda78.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ブログを移行してみた</title>
+      <link>http://tnoda78.github.io/blog/hugo-blog/</link>
+      <pubDate>Mon, 02 Mar 2015 20:20:02 +0900</pubDate>
+      
+      <guid>http://tnoda78.github.io/blog/hugo-blog/</guid>
+      <description>
+
+&lt;h2 id=&#34;はじめに:06e3276c8a44b9163745f4e814816f07&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;やはりやったことは外からも内からも見られる方が良いと改めて思い、ブログ（というか文章）を書く習慣はつけた方が良いと考えブログを書くことにしました。&lt;/p&gt;
+
+&lt;h2 id=&#34;hugo:06e3276c8a44b9163745f4e814816f07&#34;&gt;Hugo&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;はGo言語製の静的サイトジェネレーターです。Rubyで言うところのJykell, Middlemanです。使い方も似ています。移行も簡単なようです。しかも早い。&lt;/p&gt;
+
+&lt;p&gt;htmlページの生成も早いのですが、なによりもインストールが早いのが印象的です。Ruby製のツールはRubyをインストールする必要がありますからね。Go言語はコマンドラインツールの作成に本当最適ですね。
+GitHub社のhubコマンドやHerokuのツールも既にGo言語で書きなおされているとのこと。&lt;/p&gt;
+
+&lt;h2 id=&#34;githubページに移行-werckerで自動デプロイ:06e3276c8a44b9163745f4e814816f07&#34;&gt;GitHubページに移行。Werckerで自動デプロイ&lt;/h2&gt;
+
+&lt;p&gt;ブログはGitHubページに移行しました。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sinatra、Unicorn、Rmagickを使って、GIF画像作成Webアプリを作る</title>
+      <link>http://tnoda78.github.io/blog/sinatra-unicorn-rmagick/</link>
+      <pubDate>Tue, 18 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://tnoda78.github.io/blog/sinatra-unicorn-rmagick/</guid>
+      <description>
+
+&lt;h2 id=&#34;はじめに:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;以前にRailsアプリで画像をダウンロードできるアプリを仕事で作ったことがありまして、それを応用してGIF画像を作成するアプリを過去に作っていました。
+デプロイするサーバーとかを持っていないので、社内のサーバーに上げて公開していたたんなる内輪ウケのジョークアプリだったのですが、Herokuにはデフォルトで&lt;a href=&#34;http://www.imagemagick.org/script/index.php&#34;&gt;ImageMagick&lt;/a&gt;が入っていることを知りまして、Herokuにデプロイしてみました。&lt;/p&gt;
+
+&lt;h2 id=&#34;作ったアプリについて:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;作ったアプリについて&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://tnoda78.github.io/hozumicart3&#34;&gt;Hozumi Cart3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tnoda78/hozumicart3&#34;&gt;ソース on Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;現バージョンはスマホでも見られます！（レスポンシブデザインに挑戦）&lt;/p&gt;
+
+&lt;h2 id=&#34;作成工程:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;作成工程&lt;/h2&gt;
+
+&lt;p&gt;作成工程は以下の流れです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;土台となるGIF画像を作成する&lt;/li&gt;
+&lt;li&gt;GIF画像に指定した文字を埋め込む&lt;/li&gt;
+&lt;li&gt;指定したカートの色を変える&lt;/li&gt;
+&lt;li&gt;WEBアプリ化する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;土台となるgif画像を作成する:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;土台となるGIF画像を作成する&lt;/h3&gt;
+
+&lt;p&gt;まず文字が表示されていないカートGIF画像をツールを使って作りました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/224715403/images/cart.gif&#34; alt=&#34;cart&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;こちらは、&lt;a href=&#34;http://giam.softonic.jp/&#34;&gt;Giam&lt;/a&gt;というソフトを使いました。&lt;/p&gt;
+
+&lt;p&gt;上にあるGIF画像は10コマの画像で構成されています。&lt;/p&gt;
+
+&lt;p&gt;例）その中の2枚の画像&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/224715403/images/cart_pic01.bmp&#34; alt=&#34;cart1&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dl.dropboxusercontent.com/u/224715403/images/cart_pic02.bmp&#34; alt=&#34;cart2&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;この10枚の画像はキャプチャソフトとExcelを使って作りました。。カートはExcelのオブジェクトで横にずらしながら、コマ撮りアニメーションのようにキャプチャしていきます。
+キャプチャしていった10枚の画像をGiamで編集し、一つのGIF画像を作成していきました。&lt;/p&gt;
+
+&lt;h3 id=&#34;gif画像に指定した文字を埋め込む:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;GIF画像に指定した文字を埋め込む&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.imagemagick.org/script/index.php&#34;&gt;ImageMagick&lt;/a&gt;は、画像編集ソフトです。コマンドラインにて画像編集（大きさ変えたり、画像の品質を変えたり）する事が可能です。
+PhotoShopやGimpで出来ることをCUIでできるイメージです。こちらのソフトはコマンドラインだけでなく、&lt;a href=&#34;http://www.imagemagick.org/script/api.php&#34;&gt;APIも用意&lt;/a&gt;されていまして、
+&lt;a href=&#34;http://rmagick.rubyforge.org/&#34;&gt;Rmagick&lt;/a&gt;というRuby製のライブラリを使うとこのAPIをRubyにて使うことができます。今回はRmagickを使いました。&lt;/p&gt;
+
+&lt;p&gt;以下のようなメソッドを使用して、上に書いた各10枚の画像を参照できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gif = Magick::ImageList.new &amp;quot;images/cart.gif&amp;quot; # &amp;lt;-- imagesディレクトリのcart.gifにアクセス
+gif.each_with_index do |f, i|  # &amp;lt;-- f が画像オブジェクト、iはindex
+   # ...
+   # ...
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;画像オブジェクトに文字を埋め込むには、annotateメソッドを使います。&lt;/p&gt;
+
+&lt;p&gt;（ソース記述例）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# imgは画像オブジェクト。x, y は画像の座標（ピクセル）です。
+Magick::Draw.new.annotate(img, 0, 0, x, y, letter) do 
+# フォントファイルのパス、配置、大きさ等を指定
+self.font = font_file_path               
+self.align = Magick::CenterAlign
+self.stroke = &amp;quot;transparent&amp;quot;
+self.pointsize = 52
+self.text_antialias = true
+self.kerning = 1
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;指定したカートの色を変える:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;指定したカートの色を変える&lt;/h3&gt;
+
+&lt;p&gt;ImageMagickは、指定したピクセルの色を変えられます。Rmagickでは、Imageクラスのpixel_colorメソッドを使います。&lt;/p&gt;
+
+&lt;p&gt;（ソース記述例）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# カートの高さ(Y座標 118～134）あたりのピクセルの色が緑色（土台GIFのカートの色）の座標を指定された色に変えている
+for y in 118...134
+  for x in 0...img.columns
+    src = img.pixel_color(x, y)
+    r = src.red
+    g = src.green
+    b = src.blue
+    if r == 37522 &amp;amp;&amp;amp; g == 53456 &amp;amp;&amp;amp; b == 20560
+    img.pixel_color(x, y, &amp;quot;#&amp;quot; + color)
+  end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;webアプリ化する:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;WEBアプリ化する&lt;/h3&gt;
+
+&lt;p&gt;Sinatraを使っています。（Sinatraは情報が多いので省略します。私自身それほど詳しい訳ではないので。。）
+ルートにアクセスするとページHTMLを返し、&lt;code&gt;/cart&lt;/code&gt;にアクセスするとGIF画像を返しています。&lt;a href=&#34;https://github.com/tnoda78/hozumicart3/blob/master/main.rb&#34;&gt;ソース - main.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;画像の編集は時間がかかるので、&lt;code&gt;/cart&lt;/code&gt;のレスポンスはやや遅いです。&lt;/p&gt;
+
+&lt;h2 id=&#34;heroke-とgithub-pagesにデプロイしました:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;Heroke とGithub Pagesにデプロイしました&lt;/h2&gt;
+
+&lt;p&gt;上に書いたRmagick、SinatraのソースはHerokuを使って公開しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://hozumicart3.herokuapp.com/&#34;&gt;http://hozumicart3.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Sinatra、Unicornを使ったHerokuへのデプロイは以下のサイトを参考にしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://dev.classmethod.jp/server-side/ruby-on-rails/sinatra-postgresql-unicorn-on-heroku/&#34;&gt;Sinatra + PostgreSQL + Unicorn な Web サーバーを Heroku に構築する&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Github Pagesも作りたかったので、viewファイルと同じようなものをhtmlで作りました。（HerokuにUPしているviewファイルはローカル端末でも動くようにしているため、若干記述は異なります）&lt;/p&gt;
+
+&lt;p&gt;Github Project用のGithub Pagesは、&lt;code&gt;gh-pages&lt;/code&gt;というブランチを作成してhtml等をpushすれば構築できます。以下のサイトを参考にしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tokkono.cute.coocan.jp/blog/slow/index.php/programming/github-pages-almost-perfect-guide/&#34;&gt;GitHub Pagesホスティングサービス（ほぼ）完全活用ガイド&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ボタンを押したり、色指定プルダウンが変わったタイミングで、imgタグのsrc属性を変えて画像を取得しています。
+画像がロードされるまでにちょっと時間がかかるので、Now LoadingGif画像に切り替えたりしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://tnoda78.github.io/hozumicart3/images/cart_wait1.gif&#34; alt=&#34;Now Loading...&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;さいごに:5d72898f4d30e0953c0a2c9f55487a45&#34;&gt;さいごに&lt;/h2&gt;
+
+&lt;p&gt;Ruby自体に触れるようになったのも、ここ1、2年（おかしな記述も多いかと）なのですがRubygemsやBundler等の一連のエコシステムが心地よくて、「早めに完成品が見られる感」が半端ないですね。
+表示されたGif画像は保存もできるので、どうぞお持ち帰りください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go言語のお勉強　コマンドラインツールを作成する</title>
+      <link>http://tnoda78.github.io/blog/go-command-line-tool/</link>
+      <pubDate>Wed, 12 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://tnoda78.github.io/blog/go-command-line-tool/</guid>
+      <description>
+
+&lt;h2 id=&#34;はじめに:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;最近よく&lt;a href=&#34;http://golang.jp/&#34;&gt;Go言語&lt;/a&gt;の評判を耳にするようになりました。ちょっと勉強してみようと思いまして、コマンドラインツールを作ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tnoda78.github.io/hozumi-command/&#34;&gt;Hozumi Command&lt;/a&gt;
+&lt;a href=&#34;https://github.com/tnoda78/hozumi-command&#34;&gt;(ソース)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;リズミカルに「ほずみ」と出力するだけの、なんの役にもたたないツールです。（「ほずみ」以外にも色々出力できます。）
+Go言語はクロスコンパイル環境の構築が容易で、様々な環境で動くバイナリファイルが簡単に作成できます。以下のようなスクリプトを作成すれば、一気に５環境のバイナリファイルを作成できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GOOS=linux GOARCH=386 go build -o tools/linux/i386/hozumi hozumi.go
+GOOS=linux GOARCH=amd64 go build -o tools/linux/amd64/hozumi hozumi.go
+GOOS=windows GOARCH=386 go build -o tools/windows/i386/hozumi.exe hozumi.go
+GOOS=windows GOARCH=amd64 go build -o tools/windows/amd64/hozumi.exe hozumi.go
+GOOS=darwin GOARCH=amd64 go build -o tools/darwin/hozumi hozumi.go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go言語はサイトの情報が充実していますね。日本語の翻訳も進んでいて素晴らしいです。基本的にサイトを見れば、ひととおり習得できそうです。基本的な構文はサイトを見れば充分かと。&lt;/p&gt;
+
+&lt;h2 id=&#34;学んだこと:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;学んだこと&lt;/h2&gt;
+
+&lt;p&gt;作成したツールは以下を使っています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;flagパッケージ&lt;/li&gt;
+&lt;li&gt;timeパッケージ&lt;/li&gt;
+&lt;li&gt;構造体&lt;/li&gt;
+&lt;li&gt;メソッド&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;flagパッケージ:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;flagパッケージ&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.jp/pkg/flag&#34;&gt;http://golang.jp/pkg/flag&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;コマンドラインツールなのでオプション指定を可能にしたいのですが、標準パッケージが存在します。&lt;/p&gt;
+
+&lt;p&gt;flag.BoolVar(&amp;amp;help, &amp;ldquo;h&amp;rdquo;, false, &amp;ldquo;display help&amp;rdquo;)
+flag.BoolVar(&amp;amp;help, &amp;ldquo;help&amp;rdquo;, false, &amp;ldquo;display help&amp;rdquo;)&lt;/p&gt;
+
+&lt;p&gt;上のように記述すれば、変数helpには-h(or &amp;ndash;help)が指定されていれば、&amp;rdquo;true&amp;rdquo;、指定されていなければ&amp;rdquo;false&amp;rdquo;が入ります。
+また&lt;code&gt;flag.Usage&lt;/code&gt;に関数を代入すれば、誤ったオプションを指定した場合に代入した関数を実行することができます。ヘルプ表示をすることも容易にできます。&amp;rdquo;First-Class Functions（第１級関数）&amp;rdquo;ってやつですね。&lt;/p&gt;
+
+&lt;h3 id=&#34;timeパッケージ:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;timeパッケージ&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang.jp/pkg/time&#34;&gt;http://golang.jp/pkg/time&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;リズミカルな出力のために、sleepをさせたいです。Sleep関数はtimeパッケージにあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;構造体:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;構造体&lt;/h3&gt;
+
+&lt;p&gt;Go言語にはクラスの概念は無いようです。C言語のような構造体が定義できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type HozumiWriter struct {
+    contents                 []string
+    intervalDisplayRow       time.Duration
+    intervalDisplayOneLetter time.Duration
+    intervalDisplayCool      time.Duration
+    cool                     bool
+    dashboard                []string
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;メソッド:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;メソッド&lt;/h3&gt;
+
+&lt;p&gt;構造体に振る舞いは定義できます。writeメソッドから、displayContentsメソッドなどを呼んでいます。-cオプションが付いている場合は、&lt;code&gt;&amp;quot;Coooooooooooooooooooooool&amp;quot;&lt;/code&gt;と叫びます。（2014/02/13現在）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func (writer *HozumiWriter) write() {
+    for {
+        writer.displayContents()
+        if writer.cool {
+            writer.displayCool()
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;さいごに:48baa64d6bc05431962e7e8fea63e16f&#34;&gt;さいごに&lt;/h2&gt;
+
+&lt;p&gt;「LL言語ほど柔軟な記述はできませんが、C言語よりはカジュアルに使えそう」というのが私のGo言語に対する印象です。&lt;/p&gt;
+
+&lt;p&gt;実は１点このツールで実装したいけれどできていないものがありまして、&lt;code&gt;-p --parallel&lt;/code&gt;オプションです。Go言語をさわる前によく耳にしていたのが&lt;a href=&#34;http://golang.jp/effective_go#goroutines&#34;&gt;ゴルーチン&lt;/a&gt;です。並列処理の扱いが得意であると。&lt;/p&gt;
+
+&lt;p&gt;並列的にパラメータで指定した文字列を出力させたり、&amp;rdquo;Cooooooooooooooooooooooooooooooooool&amp;rdquo;と叫ばせるのが当面の目標です。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
