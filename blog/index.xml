@@ -7,7 +7,78 @@
         <language>ja-jp</language>
         <author>Tomoya Noda</author>
         <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
-        <updated>Tue, 03 Mar 2015 00:00:00 UTC</updated>
+        <updated>Mon, 16 Mar 2015 19:18:31 &#43;0900</updated>
+        
+        <item>
+            <title>技術情報収集のフローの話</title>
+            <link>http://tnoda78.github.io/blog/tech-info-flow/</link>
+            <pubDate>Mon, 16 Mar 2015 19:18:31 &#43;0900</pubDate>
+            <author>Tomoya Noda</author>
+            <guid>http://tnoda78.github.io/blog/tech-info-flow/</guid>
+            <description>
+
+&lt;h2 id=&#34;はじめに:a2f65a8c910e24db67889b1af19eb505&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;技術情報収集をどうしているかという話。Feedly、はてブ、Pocket、IFTTTをうまく使うと良いよという話。&lt;/p&gt;
+
+&lt;h2 id=&#34;方法:a2f65a8c910e24db67889b1af19eb505&#34;&gt;方法&lt;/h2&gt;
+
+&lt;p&gt;以下のサービスをうまく使う。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://feedly.com/&#34;&gt;Feedly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://b.hatena.ne.jp/&#34;&gt;はてブ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://getpocket.com/&#34;&gt;Pocket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ifttt.com&#34;&gt;IFTTT&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Feedly、はてブ、PocketをIFTTTでうまいこと連携させれば、Pocketに情報が溜まっていく。&lt;/p&gt;
+
+&lt;p&gt;IFTTTに設定している設定内容は以下。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Feedlyで&amp;rdquo;Saved For Later&amp;rdquo;されたら、はてブにブックマークする&lt;/li&gt;
+&lt;li&gt;はてブにブックマークされたら、Pocketに登録する&lt;/li&gt;
+&lt;li&gt;PocketでStarをつけたら、Twitterにつぶやく&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;feedlyで-saved-for-later-されたら-はてブにブックマークする:a2f65a8c910e24db67889b1af19eb505&#34;&gt;Feedlyで&amp;rdquo;Saved For Later&amp;rdquo;されたら、はてブにブックマークする&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If new article saved for later, then send an email from &amp;hellip;&amp;hellip;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Feedlyに登録するのはエンジニアのブログとTech系サイトの記事。ブログは仕事をしていて調べ物した時にググってヒットしたものが主なもの。技術系ではないものも含まれているけれど少数。&lt;/p&gt;
+
+&lt;p&gt;Feedlyでは読まない。タイトルを眺めるだけ。その中で読みたいものにSaved For Laterをする。現状、Saved For Laterをするのは「30記事に1つ」程度。&lt;/p&gt;
+
+&lt;p&gt;はてブはサインアップすると、メールアドレスを貰えてそこにメールをする（件名:タイトル、本文:URL）と、ブックマークしてくれる機能がある。IFTTTは海外のサービスなので日本のサービスは連携できないが、Gmailアカウントからメールを送信できる。それを利用する。&lt;/p&gt;
+
+&lt;h3 id=&#34;はてブにブックマークされたら-pocketに登録する:a2f65a8c910e24db67889b1af19eb505&#34;&gt;はてブにブックマークされたら、Pocketに登録する。&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If new feed item from &lt;a href=&#34;http://b.hatena.ne.jp/tnoda78/rss&#34;&gt;http://b.hatena.ne.jp/tnoda78/rss&lt;/a&gt;, then save later for tnoda78&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;上の方法でFeedlyで気になった記事ははてブされる。はてブされたものはPocketに登録される。それなら、Feedly → Pocketで良いのでは？となるが、はてブのホットエントリ（テクノロジ）を眺めてブックマークしたものをPocketに登録したいのでこの流れにしている。&lt;/p&gt;
+
+&lt;p&gt;その他、ブラウザで見つけた記事を「後で読む」したい場合は、Pocketに直接登録せずにはてブに追加する。TwitterやTumblrでシェアされたリンクもはてブに追加する。&lt;/p&gt;
+
+&lt;h3 id=&#34;pocketでstarをつけたら-twitterにつぶやく:a2f65a8c910e24db67889b1af19eb505&#34;&gt;PocketでStarをつけたら、Twitterにつぶやく&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If new favorite item by tnoda78, then post a tweet to @tnoda78&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Pocketまでの流れで完結するのだけれど、すばらしいブログや記事はシェアをしたい。PocketでStarを付けるとつぶやく。&lt;/p&gt;
+
+&lt;h2 id=&#34;終わりに:a2f65a8c910e24db67889b1af19eb505&#34;&gt;終わりに&lt;/h2&gt;
+
+&lt;p&gt;技術習得はこれだけじゃダメなのだが、なんとなく「この業界で最近何が起きているのか？」は労力をかけずに把握できるようになった。&lt;/p&gt;
+
+&lt;p&gt;しばらくIFTTTはチェックしていなかったけれど、やれること増えていますね。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>ブログを移行してみた</title>
