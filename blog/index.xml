@@ -7,7 +7,43 @@
         <language>ja-jp</language>
         <author>Tomoya Noda</author>
         <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
-        <updated>Mon, 16 Mar 2015 19:18:31 &#43;0900</updated>
+        <updated>Thu, 19 Mar 2015 00:10:29 &#43;0900</updated>
+        
+        <item>
+            <title>DBを使わないWebアプリはHerokuに上げればいいという話</title>
+            <link>http://tnoda78.github.io/blog/heroku-prototype/</link>
+            <pubDate>Thu, 19 Mar 2015 00:10:29 &#43;0900</pubDate>
+            <author>Tomoya Noda</author>
+            <guid>http://tnoda78.github.io/blog/heroku-prototype/</guid>
+            <description>
+
+&lt;h2 id=&#34;はじめに:c4d78843085b2b98d7a85485515dd00d&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;DBを使わないWebアプリのアイデアを思いついたらHeroku（無料枠）を使えばいいじゃないのという話。&lt;/p&gt;
+
+&lt;h2 id=&#34;プロトタイプ実装やライブラリ検証:c4d78843085b2b98d7a85485515dd00d&#34;&gt;プロトタイプ実装やライブラリ検証&lt;/h2&gt;
+
+&lt;p&gt;Railsで履歴の差分表示をGitHubのソースコードのDiffのような表示が簡単にできないものかと調べていたら、Diffyというgemがあることが分かった。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/samg/diffy&#34;&gt;https://github.com/samg/diffy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;どこまで便利に使えるのかを調べるために試しに実装してみてその結果を他の人に共有する必要がある場合、ローカル環境で3000番であげてそのURLを共有したり社内のどこかのサーバーにあげればいいのだが、ライブラリの検証段階なのでPublicに漏らしてはいけない情報がある訳でもなく、Herokuにデプロイしてしまうのがいいなと思ってあげてみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://diffy-sample.herokuapp.com&#34;&gt;https://diffy-sample.herokuapp.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2つの入力フォームを入力してそのdiffを表示するだけの簡単なもの。DBとかもいらない。&lt;/p&gt;
+
+&lt;h2 id=&#34;herokuとherokuの無料枠:c4d78843085b2b98d7a85485515dd00d&#34;&gt;HerokuとHerokuの無料枠&lt;/h2&gt;
+
+&lt;p&gt;Herokuの無料枠(1Dyno)で充分で動く。データを保持する必要もないのでAdd-onも要らない。Herokuはサインアップにはクレジットカード番号は求められない。有料枠を選択した場合や一定の使用料を超えると有料になるAdd-on（Heroku Postgresなど）を指定した場合になって初めてカード番号の登録を求められる。誤って課金されてしまう心配もない。&lt;/p&gt;
+
+&lt;p&gt;現在はGitHubのPublicリポジトリと連携をすれば、GitHubのリポジトリにpushすればHerokuへのデプロイが始まるようにできる。&lt;code&gt;git push heroku master&lt;/code&gt; ってやらなくてよくなっている。&lt;/p&gt;
+
+&lt;h2 id=&#34;おわりに:c4d78843085b2b98d7a85485515dd00d&#34;&gt;おわりに&lt;/h2&gt;
+
+&lt;p&gt;公開できるソースコードやアプリはなるべく公開した方が良いと考えています、良し悪しにかかわらず。世界のどこか、または5年後10年後の未来に誰かの役に立ったりするかもしれませんからね。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>技術情報収集のフローの話</title>
