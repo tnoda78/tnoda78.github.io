@@ -27,10 +27,10 @@
 &lt;p&gt;以下のサービスをうまく使う。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://feedly.com/&#34;&gt;Feedly&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://b.hatena.ne.jp/&#34;&gt;はてブ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://getpocket.com/&#34;&gt;Pocket&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ifttt.com&#34;&gt;IFTTT&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://feedly.com/&#34; target=&#34;_blank&#34; &gt;Feedly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://b.hatena.ne.jp/&#34; target=&#34;_blank&#34;&gt;はてブ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://getpocket.com/&#34; target=&#34;_blank&#34;&gt;Pocket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ifttt.com/&#34; target=&#34;_blank&#34;&gt;IFTTT&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Feedly、はてブ、PocketをIFTTTでうまいこと連携させれば、Pocketに情報が溜まっていく。&lt;/p&gt;
