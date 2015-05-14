@@ -1,0 +1,91 @@
+<html>
+  <head>
+  <title>
+    
+    Ansibleいいないいな |
+    
+    tnoda78.github.io
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" href="/css/tnoda78.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="https://1.gravatar.com/avatar/8aab4749403df44b28d0b8eca4c261c5?d=https%3A%2F%2Fidenticons.github.com%2F95598c50b860c7a9d64956eb50e5363c.png&r=x&s=140">
+  <link href="http://tnoda78.github.io//index.xml" rel="alternate" type="application/rss+xml" title="tnoda78.github.io" />
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-51087077-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+  <body>
+    <div class="container container-ext">
+      <div class="col-md-10 col-md-offset-1">
+  <header>
+    <img class="icon responsive-image" alt="" src="https://1.gravatar.com/avatar/8aab4749403df44b28d0b8eca4c261c5?d=https%3A%2F%2Fidenticons.github.com%2F95598c50b860c7a9d64956eb50e5363c.png&amp;r=x&amp;s=140" style="float:left;">
+    <h1>
+      <a href="/">tnoda78.github.io</a>
+    </h1>
+    <div style="clear: both;"></div>
+    <hr />
+  </header>
+</div>
+
+
+      <section class="blog col-md-8 col-md-offset-2">
+        <div class="row">
+          <a class="list" href="/blog">&lt;&lt; List</a>
+        </div>
+        <h1>Ansibleいいないいな</h1>
+        <time>May 14, 2015</time>
+        
+
+<h2 id="はじめに:0b1e640617f749f1a30a9b7f2d176167">はじめに</h2>
+
+<p>新しいプロジェクトの開発環境を作る時にAnsibleを使った。このプロジェクトはモバイルアプリの開発。サーバーはmBassを使う。したがってAnsibleをサーバーのプロビジョニングに使った訳ではなく、ローカル開発の環境作りに使った。</p>
+
+<h2 id="開発環境構築は手順書配布ではなく-playbook配布で:0b1e640617f749f1a30a9b7f2d176167">開発環境構築は手順書配布ではなく、Playbook配布で</h2>
+
+<p>開発環境構築手順書といえば、テキストで実行コマンドをつらつらと書いていくもの。Excelでインストール手順を画面キャプチャを取りながら…なんてものもある。手順書を書くのはなかなかつらい。「あーでもない、こーでもない」と試行錯誤して環境作って、手順書作って、その手順書に誤りがないかまた環境作ってみたりする必要があったりして。</p>
+
+<p>最初から構築をAnsibleのPlaybook作成から始めれば「あーでもない、こーでもない」がプログラムのデバッグ、トライ＆エラーと同じになる。プログラムに慣れている人ならそれほど苦行にならない。各メンバーに配布するのはPlaybookになるので、手順書いらない。Playbookに誤りがないかの確認はansible-playbookコマンドを実行するだけ。自動。</p>
+
+<h2 id="小さく作れるansible:0b1e640617f749f1a30a9b7f2d176167">小さく作れるAnsible</h2>
+
+<p>AnsibleはYAMLファイル１つから始められるのもとても良い。<a href="https://docs.ansible.com/playbooks_best_practices.html">こちら</a>を見ると、サーバー構成に使うならChefのようなディレクトリ構成にすることが良いらしい。</p>
+
+<p>例えばWebアプリの開発なら、</p>
+
+<ul>
+<li>ローカル開発環境のPlaybookをYAMLファイル1つで作る。</li>
+<li>Production用サーバーの構成は上のYAMLファイルをもとに（分割などして）膨らましていく。</li>
+</ul>
+
+<p>上の流れでいけそう。（やったことないけど）</p>
+
+<p>AnsibleとChefの関係は、RubyのWebアプリフレームワークでいうところのSinatraとRailsの関係に似ていると思った。Sinatraもファイル1つで始められるけど、規模が大きくなったりMVCやテストを意識すると、結局<code>rails new</code>した時のディレクトリ構成に近づいていくみたいな。</p>
+
+<h2 id="おわりに:0b1e640617f749f1a30a9b7f2d176167">おわりに</h2>
+
+<p>規模の大きなシステムになると、色々例外ケースなどが生じて「Rubyのコード書けるChef」が重宝されるという情報も聞きますが、サーバー構成もAnsibleでいいんじゃないかと思いました。言い切れるほど試してないはいませんが。</p>
+
+        <hr />
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="tnoda78">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </section>
+      <div class="col-md-10 col-md-offset-1">
+  <hr />
+  <footer>
+  <span class="footer">Copyright (C) 2015 Tomoya Noda</span>
+  </footer>
+</div>
+
+
+    </div>
+  </body>
+</html>

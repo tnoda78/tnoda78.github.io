@@ -7,7 +7,46 @@
         <language>ja-jp</language>
         <author>Tomoya Noda</author>
         <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
-        <updated>Thu, 19 Mar 2015 00:10:29 &#43;0900</updated>
+        <updated>Thu, 14 May 2015 21:27:36 &#43;0900</updated>
+        
+        <item>
+            <title>Ansibleいいないいな</title>
+            <link>http://tnoda78.github.io/blog/ansible-good-good/</link>
+            <pubDate>Thu, 14 May 2015 21:27:36 &#43;0900</pubDate>
+            <author>Tomoya Noda</author>
+            <guid>http://tnoda78.github.io/blog/ansible-good-good/</guid>
+            <description>
+
+&lt;h2 id=&#34;はじめに:0b1e640617f749f1a30a9b7f2d176167&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;新しいプロジェクトの開発環境を作る時にAnsibleを使った。このプロジェクトはモバイルアプリの開発。サーバーはmBassを使う。したがってAnsibleをサーバーのプロビジョニングに使った訳ではなく、ローカル開発の環境作りに使った。&lt;/p&gt;
+
+&lt;h2 id=&#34;開発環境構築は手順書配布ではなく-playbook配布で:0b1e640617f749f1a30a9b7f2d176167&#34;&gt;開発環境構築は手順書配布ではなく、Playbook配布で&lt;/h2&gt;
+
+&lt;p&gt;開発環境構築手順書といえば、テキストで実行コマンドをつらつらと書いていくもの。Excelでインストール手順を画面キャプチャを取りながら…なんてものもある。手順書を書くのはなかなかつらい。「あーでもない、こーでもない」と試行錯誤して環境作って、手順書作って、その手順書に誤りがないかまた環境作ってみたりする必要があったりして。&lt;/p&gt;
+
+&lt;p&gt;最初から構築をAnsibleのPlaybook作成から始めれば「あーでもない、こーでもない」がプログラムのデバッグ、トライ＆エラーと同じになる。プログラムに慣れている人ならそれほど苦行にならない。各メンバーに配布するのはPlaybookになるので、手順書いらない。Playbookに誤りがないかの確認はansible-playbookコマンドを実行するだけ。自動。&lt;/p&gt;
+
+&lt;h2 id=&#34;小さく作れるansible:0b1e640617f749f1a30a9b7f2d176167&#34;&gt;小さく作れるAnsible&lt;/h2&gt;
+
+&lt;p&gt;AnsibleはYAMLファイル１つから始められるのもとても良い。&lt;a href=&#34;https://docs.ansible.com/playbooks_best_practices.html&#34;&gt;こちら&lt;/a&gt;を見ると、サーバー構成に使うならChefのようなディレクトリ構成にすることが良いらしい。&lt;/p&gt;
+
+&lt;p&gt;例えばWebアプリの開発なら、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ローカル開発環境のPlaybookをYAMLファイル1つで作る。&lt;/li&gt;
+&lt;li&gt;Production用サーバーの構成は上のYAMLファイルをもとに（分割などして）膨らましていく。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上の流れでいけそう。（やったことないけど）&lt;/p&gt;
+
+&lt;p&gt;AnsibleとChefの関係は、RubyのWebアプリフレームワークでいうところのSinatraとRailsの関係に似ていると思った。Sinatraもファイル1つで始められるけど、規模が大きくなったりMVCやテストを意識すると、結局&lt;code&gt;rails new&lt;/code&gt;した時のディレクトリ構成に近づいていくみたいな。&lt;/p&gt;
+
+&lt;h2 id=&#34;おわりに:0b1e640617f749f1a30a9b7f2d176167&#34;&gt;おわりに&lt;/h2&gt;
+
+&lt;p&gt;規模の大きなシステムになると、色々例外ケースなどが生じて「Rubyのコード書けるChef」が重宝されるという情報も聞きますが、サーバー構成もAnsibleでいいんじゃないかと思いました。言い切れるほど試してないはいませんが。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>DBを使わないWebアプリはHerokuに上げればいいという話</title>
