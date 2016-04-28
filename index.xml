@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
-    <lastBuildDate>Thu, 14 May 2015 21:27:36 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 28 Apr 2016 19:30:45 +0900</lastBuildDate>
     <atom:link href="http://tnoda78.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Webpack</title>
+      <link>http://tnoda78.github.io/blog/webpack/</link>
+      <pubDate>Thu, 28 Apr 2016 19:30:45 +0900</pubDate>
+      
+      <guid>http://tnoda78.github.io/blog/webpack/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://webpack.github.io/&#34;&gt;Webpack&lt;/a&gt;を触ってみた。JavaScriptのビルドツール。&lt;/p&gt;
+
+&lt;p&gt;良い。とても良い。loaderがとても良い。&lt;/p&gt;
+
+&lt;p&gt;Railsのassetsまわりもこれでやれればいいんじゃないかなと思った。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Ansibleいいないいな</title>

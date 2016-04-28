@@ -7,7 +7,21 @@
         <language>ja-jp</language>
         <author>Tomoya Noda</author>
         <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
-        <updated>Thu, 14 May 2015 21:27:36 &#43;0900</updated>
+        <updated>Thu, 28 Apr 2016 19:30:45 &#43;0900</updated>
+        
+        <item>
+            <title>Webpack</title>
+            <link>http://tnoda78.github.io/blog/webpack/</link>
+            <pubDate>Thu, 28 Apr 2016 19:30:45 &#43;0900</pubDate>
+            <author>Tomoya Noda</author>
+            <guid>http://tnoda78.github.io/blog/webpack/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;https://webpack.github.io/&#34;&gt;Webpack&lt;/a&gt;を触ってみた。JavaScriptのビルドツール。&lt;/p&gt;
+
+&lt;p&gt;良い。とても良い。loaderがとても良い。&lt;/p&gt;
+
+&lt;p&gt;Railsのassetsまわりもこれでやれればいいんじゃないかなと思った。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Ansibleいいないいな</title>
