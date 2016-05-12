@@ -7,8 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>Copyright (C) 2015 Tomoya Noda</copyright>
-    <lastBuildDate>Thu, 28 Apr 2016 19:30:45 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 May 2016 12:27:57 +0900</lastBuildDate>
     <atom:link href="http://tnoda78.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GitHubのPrivateリポジトリの上限が無くなった</title>
+      <link>http://tnoda78.github.io/blog/github_private_repositry/</link>
+      <pubDate>Thu, 12 May 2016 12:27:57 +0900</pubDate>
+      
+      <guid>http://tnoda78.github.io/blog/github_private_repositry/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/blog/2164-introducing-unlimited-private-repositories&#34;&gt;https://github.com/blog/2164-introducing-unlimited-private-repositories&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHubのPrivateリポジトリの上限が無くなったので、BitBucketに置いていた個人用リポジトリを月額7ドルでGitHubに置けるようになった。このブログ用のリポジトリも移動しよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GitHubにリポジトリを作成&lt;/li&gt;
+&lt;li&gt;gitのリモートの向き先を変更&lt;/li&gt;
+&lt;li&gt;git push&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://app.wercker.com/&#34;&gt;wercker&lt;/a&gt;に追加&lt;/li&gt;
+&lt;li&gt;このページをcommitしてpush&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;werker.ymlはそのまま使える。werkerにbuildとdeployのWorkflowなどを追加。このファイルをcommitしてpushすれば、werckerがGitHub Pages用リポジトリに反映してくれて完了。（になると思う）&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Webpack</title>

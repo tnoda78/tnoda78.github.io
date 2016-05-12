@@ -2,7 +2,7 @@
   <head>
   <title>
     
-    Webpack |
+    GitHubのPrivateリポジトリの上限が無くなった |
     
     tnoda78.github.io
   </title>
@@ -41,14 +41,22 @@
         <div class="row">
           <a class="list" href="/blog">&lt;&lt; List</a>
         </div>
-        <h1>Webpack</h1>
-        <time>April 28, 2016</time>
+        <h1>GitHubのPrivateリポジトリの上限が無くなった</h1>
+        <time>May 12, 2016</time>
         <hr />
-        <p><a href="https://webpack.github.io/">Webpack</a>を触ってみた。JavaScriptのビルドツール。</p>
+        <p><a href="https://github.com/blog/2164-introducing-unlimited-private-repositories">https://github.com/blog/2164-introducing-unlimited-private-repositories</a></p>
 
-<p>良い。とても良い。loaderがとても良い。</p>
+<p>GitHubのPrivateリポジトリの上限が無くなったので、BitBucketに置いていた個人用リポジトリを月額7ドルでGitHubに置けるようになった。このブログ用のリポジトリも移動しよう。</p>
 
-<p>Railsのassetsまわりもこれでやれればいいんじゃないかなと思った。</p>
+<ul>
+<li>GitHubにリポジトリを作成</li>
+<li>gitのリモートの向き先を変更</li>
+<li>git push</li>
+<li><a href="https://app.wercker.com/">wercker</a>に追加</li>
+<li>このページをcommitしてpush</li>
+</ul>
+
+<p>werker.ymlはそのまま使える。werkerにbuildとdeployのWorkflowなどを追加。このファイルをcommitしてpushすれば、werckerがGitHub Pages用リポジトリに反映してくれて完了。（になると思う）</p>
 
         <hr />
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="tnoda78">Tweet</a>
