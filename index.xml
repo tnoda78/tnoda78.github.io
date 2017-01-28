@@ -7,8 +7,51 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <copyright>Copyright (C) 2016 Tomoya Noda</copyright>
-    <lastBuildDate>Thu, 12 May 2016 12:27:57 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jan 2017 15:26:33 +0900</lastBuildDate>
     <atom:link href="http://tnoda78.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ThinkPad X230 を購入</title>
+      <link>http://tnoda78.github.io/blog/thinkpadx230/</link>
+      <pubDate>Sun, 29 Jan 2017 15:26:33 +0900</pubDate>
+      
+      <guid>http://tnoda78.github.io/blog/thinkpadx230/</guid>
+      <description>
+
+&lt;p&gt;秋葉原の中古パソコンショップで ThinkPad X230 を購入した。&lt;/p&gt;
+
+&lt;h2 id=&#34;スペックなど:766d22cde81cce6001e6633d6f70d0ca&#34;&gt;スペックなど&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CPU: Corei5 第三世代&lt;/li&gt;
+&lt;li&gt;Memory: 4G&lt;/li&gt;
+&lt;li&gt;Disk: HDD 256G&lt;/li&gt;
+&lt;li&gt;OS: なし&lt;/li&gt;
+&lt;li&gt;状態: 良い&lt;/li&gt;
+&lt;li&gt;価格: ￥28,000 ほど&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最近、中古パソコン市場では ThinkPad X230 が多く出まわっているらしい。法人がリース契約で使用していた端末が中古で販売されている。SSD 128G, Memory 4G で３万円台で売られているのをよく見た。&lt;/p&gt;
+
+&lt;p&gt;１週間ほどお昼休みに中古屋さんをまわっていると、購入するものに出会った。Disk, Memory は増強するので出来れば低いものが良い。OS は Linux を使うので Windows が入っていて高いくらいなら無い方が良い。ちょうど良いものが手に入った。&lt;/p&gt;
+
+&lt;p&gt;いまどきの モバイルPC に比べると厚さはあるのだが、持ち運びに苦労することはない。&lt;/p&gt;
+
+&lt;h2 id=&#34;増強など:766d22cde81cce6001e6633d6f70d0ca&#34;&gt;増強など&lt;/h2&gt;
+
+&lt;p&gt;その足でパーツ屋に行き、メモリ（8G + 8G）、SSD 256G を購入し入れ替え。メモリの入れ替えは15年ほど前に知り合いに imac（14型テレビみたいなやつのオレンジ色。正しくは「オレンジ」ではなく、「タンジェリン」だったような）以来だったが、ネットに情報が溢れた時代なのでそれほど苦労はなくできた。SSD も同様。本体合わせて￥40,000 ほど。&lt;/p&gt;
+
+&lt;p&gt;OS は Arch Linux をインストール。事前に VirtualBox で練習を重ねておいたので大きな問題は無くインストールは完了した。Arch Linux は最初は何も入っていないので、これから色々入れていく。楽しみ。&lt;/p&gt;
+
+&lt;p&gt;たいしたソフトウェアが動いていないので、とても軽やかに使用できている。Arch Linux に苦労するのはこれからだと思うのだが。&lt;/p&gt;
+
+&lt;p&gt;ThinkPad X シリーズは、 X240以降はモバイルPC を意識しているので、とても薄くなっている。それと引き換えにメモリが１枚しか入れられなくなり、最大は 8G のようで、そういう意味でも X230は魅力的である。&lt;/p&gt;
+
+&lt;h2 id=&#34;おわりに:766d22cde81cce6001e6633d6f70d0ca&#34;&gt;おわりに&lt;/h2&gt;
+
+&lt;p&gt;PC でやってきたことがスマホで済んでしまったり、mac がスペックの割りに価格が高かったりする現状。PC は Chromebook 程度で充分とは思っているのだけど、プログラミングをするとなるとそうは行かない。そんな方には「○年落ちのPC + Linux」はおすすめできる選択肢であります。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>GitHubのPrivateリポジトリの上限が無くなった</title>
